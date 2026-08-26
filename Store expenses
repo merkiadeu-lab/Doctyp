@@ -1,0 +1,97 @@
+// Part 1: Store expenses as an array of objects
+let expenses = [
+  {
+    name: "Groceries",
+    amount: 50,
+    category: "Food"
+  },
+  {
+    name: "Transport",
+    amount: 20,
+    category: "Transport"
+  },
+  {
+    name: "Internet",
+    amount: 30,
+    category: "Utilities"
+  }
+];
+
+
+// Part 2: Calculate the total of all expenses
+function calculateTotal() {
+  const total = expenses.reduce((sum, expense) => {
+    return sum + Number(expense.amount);
+  }, 0);
+
+  return Math.round(total * 100) / 100;
+}
+
+
+// Part 3: Render expenses to the DOM
+function renderExpenses() {
+  const tableBody = document.getElementById("expenseTableBody");
+
+  // Clear existing table rows
+  tableBody.innerHTML = "";
+
+  // Build the table from the expenses array
+  expenses.forEach((expense) => {
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+      <td>${expense.name}</td>
+      <td>$${Number(expense.amount).toFixed(2)}</td>
+      <td>${expense.category}</td>
+    `;
+
+    tableBody.appendChild(row);
+  });
+
+  // Display total
+  const totalElement = document.getElementById("total");
+  totalElement.textContent = `$${calculateTotal().toFixed(2)}`;
+}
+
+
+// Part 4: Add Expense event listener
+document.getElementById("addExpense").addEventListener("click", function () {
+  const name = document.getElementById("expenseName").value;
+  const amount = document.getElementById("expenseAmount").value;
+  const category = document.getElementById("expenseCategory").value;
+
+  // Make sure the fields are not empty
+  if (name === "" || amount === "" || category === "") {
+    alert("Please fill in all fields.");
+    return;
+  }
+
+  // Add a new expense object to the array
+  expenses.push({
+    name: name,
+    amount: Number(amount),
+    category: category
+  });
+
+  // Re-render the table
+  renderExpenses();
+
+  // Clear the form
+  document.getElementById("expenseName").value = "";
+  document.getElementById("expenseAmount").value = "";
+  document.getElementById("expenseCategory").value = "";
+});
+
+
+// Display existing expenses when the page loads
+renderExpenses();
+<form>
+  <input type="text" id="expenseName" placeholder="Expense name">
+
+  <input type="number" id="expenseAmount" placeholder="Amount">
+
+  <select id="expenseCategory">
+    <option value="">Select category</option>
+    <option value="Food">Food</option>
+    <option value="Transport">Transport</option>
+ 
