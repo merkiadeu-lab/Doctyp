@@ -1,0 +1,191 @@
+
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker JS</title>
+</head>
+<body>
+
+    <h1>Expense Tracker JavaScript</h1>
+    <p>Open the browser console to view the JavaScript output.</p>
+
+    <script src="script.js"></script>
+</body>
+</html>
+The HTML only provides a basic page and links to script.js. The assignment's results are displayed using console.log().
+2. script.js
+This completes all four parts of the assignment:
+// ==========================================
+// Expense Tracker JavaScript Assignment
+// ==========================================
+
+// Part 1: Store Sample Expenses
+// Each expense is stored as a numeric value.
+
+const rent = 250;
+const food = 120;
+const transport = 80;
+const internet = 110;
+const entertainment = 60;
+const utilities = 90;
+
+
+// ==========================================
+// Part 2: Flag High Spending
+// Check each expense individually.
+// An expense above $100 is considered High Spending.
+// ==========================================
+
+if (rent > 100) {
+    console.log("Rent: High Spending");
+} else if (rent >= 0) {
+    console.log("Rent: Normal Spending");
+} else {
+    console.log("Rent: Invalid Expense");
+}
+
+if (food > 100) {
+    console.log("Food: High Spending");
+} else if (food >= 0) {
+    console.log("Food: Normal Spending");
+} else {
+    console.log("Food: Invalid Expense");
+}
+
+if (transport > 100) {
+    console.log("Transport: High Spending");
+} else if (transport >= 0) {
+    console.log("Transport: Normal Spending");
+} else {
+    console.log("Transport: Invalid Expense");
+}
+
+if (internet > 100) {
+    console.log("Internet: High Spending");
+} else if (internet >= 0) {
+    console.log("Internet: Normal Spending");
+} else {
+    console.log("Internet: Invalid Expense");
+}
+
+if (entertainment > 100) {
+    console.log("Entertainment: High Spending");
+} else if (entertainment >= 0) {
+    console.log("Entertainment: Normal Spending");
+} else {
+    console.log("Entertainment: Invalid Expense");
+}
+
+if (utilities > 100) {
+    console.log("Utilities: High Spending");
+} else if (utilities >= 0) {
+    console.log("Utilities: Normal Spending");
+} else {
+    console.log("Utilities: Invalid Expense");
+}
+
+
+// ==========================================
+// Part 3: Calculate Total Expenses
+// Store all six expenses in an array.
+// Use a loop to calculate the total.
+// ==========================================
+
+const expenses = [
+    rent,
+    food,
+    transport,
+    internet,
+    entertainment,
+    utilities
+];
+
+let totalExpenses = 0;
+
+for (const expense of expenses) {
+    totalExpenses += expense;
+}
+
+console.log("Total Expenses: $" + totalExpenses);
+
+
+// ==========================================
+// Part 4: Budget Check
+// Compare total expenses with monthly income.
+// ==========================================
+
+const monthlyIncome = 800;
+
+console.log("Monthly Income: $" + monthlyIncome);
+
+if (totalExpenses <= monthlyIncome) {
+    console.log("Status: Within Budget");
+} else {
+    console.log("Status: Over Budget");
+}
+Expected console output
+With the values above, the browser console should show:
+Rent: High Spending
+Food: High Spending
+Transport: Normal Spending
+Internet: High Spending
+Entertainment: Normal Spending
+Utilities: Normal Spending
+Total Expenses: $710
+Monthly Income: $800
+Status: Within Budget
+Notice that the total $710 is calculated using the for...of loop, rather than manually adding the expenses.
+3. README.md
+Writing
+Expense Tracker JS
+Project Overview
+Expense Tracker JS is a beginner-friendly JavaScript project that demonstrates how to store, evaluate, and calculate personal expenses using JavaScript.
+The project is part of the Personal Budget & Expense Tracker learning project and focuses on fundamental JavaScript concepts such as variables, conditional statements, arrays, loops, and comparison operators.
+Project Structure
+expense-tracker-js/
+│
+├── README.md
+├── index.html
+└── script.js
+What Was Completed This Week
+Part 1: Store Sample Expenses
+Six expense variables were created to represent different spending categories:
+Rent
+Food
+Transport
+Internet
+Entertainment
+Utilities
+Each expense is stored as a numeric value.
+Part 2: Flag High Spending
+Conditional statements using if, else if, and else were used to check each expense individually.
+Any expense greater than $100 is displayed in the browser console as High Spending. Expenses of $100 or less are displayed as Normal Spending.
+Part 3: Calculate Total Expenses
+All six expense values were stored in an array.
+A for...of loop was used to calculate the total expenses. The expenses were not manually added together.
+The current total expense is:
+Total Expenses: $710
+Part 4: Budget Check
+A variable named monthlyIncome was created with a value of $800.
+The calculated total expenses were compared with the monthly income using a conditional statement.
+Because the total expenses of $710 are less than the monthly income of $800, the result is:
+Status: Within Budget
+Technologies Used
+HTML5
+JavaScript
+GitHub
+JavaScript Concepts Demonstrated
+This assignment demonstrates:
+Variables
+Numeric values
+Constants
+Arrays
+if, else if, and else
+Comparison operators
+for...of loops
+console.log()
+Basic calculations
+Budget comparison
